@@ -290,7 +290,7 @@ class MessageExperience {
             heart.style.left = (containerRect.left + containerRect.width / 2 + (Math.random() - 0.5) * 100) + 'px';
             heart.style.top = (containerRect.top + containerRect.height / 2) + 'px';
             heart.style.fontSize = '24px';
-            heart.style.pointer = 'none';
+            heart.style.pointerEvents = 'none';
             heart.style.zIndex = '5';
             heart.textContent = '❤️';
 

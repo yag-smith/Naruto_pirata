@@ -188,7 +188,9 @@ body {
     line-height: 1.8;
     font-size: 16px;
     color: #d0d0d0;
-    animation: typewriter 1.5s steps(40, end) forward;
+    overflow: hidden;
+    white-space: pre-wrap;
+    animation: none;
 }
 
 .message-text p {
