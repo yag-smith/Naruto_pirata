@@ -1,0 +1,466 @@
+/* =====================================================
+   ESTILO GENERAL - Tema Anime Oscuro Romántico
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #0f0a1f 100%);
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Canvas para partículas de chakra */
+#chakraCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+   ===================================================== */
+
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 900px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Fondo decorativo con efecto gradient */
+.background-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 100, 50, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 50, 100, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* =====================================================
+   CONTENEDOR DEL PERGAMINO/SCROLL
+   ===================================================== */
+
+.scroll-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    background: linear-gradient(135deg, rgba(20, 20, 40, 0.95) 0%, rgba(30, 25, 45, 0.95) 100%);
+    border: 3px solid;
+    border-image: linear-gradient(135deg, #ff6b35 0%, #ff4757 50%, #d63031 100%) 1;
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 
+        0 0 30px rgba(255, 107, 53, 0.4),
+        inset 0 0 20px rgba(255, 107, 53, 0.1),
+        0 20px 60px rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    max-height: 80vh;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+}
+
+/* Scrollbar personalizado */
+.scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff6b35 0%, #ff4757 100%);
+    border-radius: 10px;
+}
+
+/* =====================================================
+   HEADER DEL SCROLL
+   ===================================================== */
+
+.scroll-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(255, 107, 53, 0.5);
+    padding-bottom: 20px;
+    animation: slideDown 0.8s ease-out;
+}
+
+.scroll-header h1 {
+    font-size: 28px;
+    color: #ff6b35;
+    text-shadow: 
+        0 0 10px rgba(255, 107, 53, 0.8),
+        0 0 20px rgba(255, 70, 55, 0.5);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 10px 0;
+}
+
+.ninja-symbol {
+    font-size: 24px;
+    margin: 0 10px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.ninja-symbol:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+/* =====================================================
+   CONTENEDOR DE CONTENIDO
+   ===================================================== */
+
+.content-wrapper {
+    position: relative;
+    min-height: 200px;
+    margin: 30px 0;
+}
+
+.message-section {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+}
+
+.message-section.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    position: relative;
+}
+
+/* Sección introductoria */
+.intro-text {
+    font-size: 20px;
+    text-align: center;
+    color: #ff6b35;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.pulse-dot {
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #ff6b35, #ff4757);
+    border-radius: 50%;
+    margin: 20px auto 0;
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.8);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* =====================================================
+   TEXTO DEL MENSAJE
+   ===================================================== */
+
+.message-text {
+    line-height: 1.8;
+    font-size: 16px;
+    color: #d0d0d0;
+    animation: typewriter 1.5s steps(40, end) forward;
+}
+
+.message-text p {
+    margin: 8px 0;
+    opacity: 0;
+    animation: fadeInText 0.6s ease-out forwards;
+}
+
+.message-text p:nth-child(1) { animation-delay: 0.1s; }
+.message-text p:nth-child(2) { animation-delay: 0.3s; }
+.message-text p:nth-child(3) { animation-delay: 0.5s; }
+.message-text p:nth-child(4) { animation-delay: 0.7s; }
+.message-text p:nth-child(5) { animation-delay: 0.9s; }
+
+/* Texto destacado */
+.message-text .highlight {
+    color: #ff6b35;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
+}
+
+.message-text .small-text {
+    font-size: 14px;
+    color: #a0a0a0;
+    opacity: 0.9;
+}
+
+/* Glow effect en texto importante */
+.glow-text {
+    filter: drop-shadow(0 0 5px rgba(255, 107, 53, 0.4));
+}
+
+.glow-text.active {
+    filter: drop-shadow(0 0 15px rgba(255, 107, 53, 0.8));
+}
+
+/* Énfasis especial */
+.message-text.emphasis p {
+    font-size: 18px;
+    color: #ff6b35;
+    font-weight: 700;
+    text-shadow: 0 0 15px rgba(255, 107, 53, 0.7);
+}
+
+/* Sección final con efecto especial */
+.final-message {
+    text-align: center;
+    border-top: 2px solid rgba(255, 107, 53, 0.3);
+    border-bottom: 2px solid rgba(255, 107, 53, 0.3);
+    padding: 20px 0;
+    margin: 20px 0;
+}
+
+.love-declaration {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ff3366 !important;
+    text-shadow: 
+        0 0 20px rgba(255, 51, 102, 0.8),
+        0 0 40px rgba(255, 107, 53, 0.6);
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* =====================================================
+   INDICADOR DE PROGRESO
+   ===================================================== */
+
+.progress-indicator {
+    text-align: center;
+    margin-top: 25px;
+    min-height: 30px;
+}
+
+.progress-text {
+    font-size: 13px;
+    color: rgba(255, 107, 53, 0.6);
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+/* =====================================================
+   BOTONES DE CONTROL
+   ===================================================== */
+
+.controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 3;
+}
+
+.control-btn {
+    padding: 12px 25px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 2px solid #ff6b35;
+    background: rgba(255, 107, 53, 0.1);
+    color: #ff6b35;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 107, 53, 0.5);
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.2);
+}
+
+.control-btn:hover:not(:disabled) {
+    background: rgba(255, 107, 53, 0.3);
+    box-shadow: 0 0 25px rgba(255, 107, 53, 0.6);
+    transform: translateY(-2px);
+}
+
+.control-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.control-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* =====================================================
+   EFECTO FINAL
+   ===================================================== */
+
+.final-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 999;
+}
+
+.final-effect.active {
+    animation: finalFlash 1.5s ease-out forwards;
+}
+
+/* =====================================================
+   ANIMACIONES
+   ===================================================== */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 107, 53, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 107, 53, 1);
+    }
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+@keyframes finalFlash {
+    0% {
+        background: rgba(255, 107, 53, 0);
+        opacity: 0;
+    }
+    50% {
+        background: rgba(255, 107, 53, 0.5);
+        opacity: 1;
+    }
+    100% {
+        background: rgba(255, 107, 53, 0);
+        opacity: 0;
+    }
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 768px) {
+    .scroll-header h1 {
+        font-size: 22px;
+    }
+
+    .message-text {
+        font-size: 14px;
+    }
+
+    .scroll-container {
+        padding: 25px 20px;
+    }
+
+    .controls {
+        bottom: 15px;
+        gap: 10px;
+    }
+
+    .control-btn {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+
+    .love-declaration {
+        font-size: 24px;
+    }
+}
+
+@media (max-height: 700px) {
+    .scroll-container {
+        max-height: 70vh;
+    }
+
+    .scroll-header {
+        margin-bottom: 15px;
+    }
+
+    .content-wrapper {
+        min-height: 150px;
+    }
+}

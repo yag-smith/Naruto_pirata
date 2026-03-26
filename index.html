@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje Secreto del Shinobi ⚔️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Canvas para partículas de chakra en el fondo -->
+    <canvas id="chakraCanvas"></canvas>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Fondo decorativo con efecto gradient -->
+        <div class="background-decoration"></div>
+
+        <!-- Pergamino/Contenedor del mensaje -->
+        <div class="scroll-container">
+            <!-- Header con símbolo ninja -->
+            <div class="scroll-header">
+                <span class="ninja-symbol">🥷</span>
+                <h1>Transmisión Secreta</h1>
+                <span class="ninja-symbol">⚔️</span>
+            </div>
+
+            <!-- Contenedor de contenido principal -->
+            <div class="content-wrapper">
+                <!-- Sección de introducción (oculta inicialmente) -->
+                <section class="message-section active" data-section="0">
+                    <p class="intro-text">Un mensaje secreto ha llegado...</p>
+                    <div class="pulse-dot"></div>
+                </section>
+
+                <!-- Secciones del mensaje principal -->
+                <section class="message-section" data-section="1">
+                    <div class="message-text">
+                        <p>¿Cómo estás? Quería decirte algo importante…</p>
+                    </div>
+                </section>
+
+                <section class="message-section" data-section="2">
+                    <div class="message-text">
+                        <p>Aunque primero tengo que confesarte algo:</p>
+                        <p class="highlight">Soy el hombre araña 🕷️</p>
+                        <p class="small-text">(ok, no, pero tenía que intentarlo 😅)</p>
+                    </div>
+                </section>
+
+                <section class="message-section" data-section="3">
+                    <div class="message-text">
+                        <p>No soy muy bueno diciendo cosas románticas o cursis,</p>
+                        <p>tú ya lo sabes.</p>
+                        <p class="small-text">Pero creo que eso también es parte de mí…</p>
+                        <p class="small-text">y de lo que tenemos.</p>
+                    </div>
+                </section>
+
+                <section class="message-section" data-section="4">
+                    <div class="message-text glow-text">
+                        <p>Nat, ya nos estamos conociendo de verdad.</p>
+                        <p class="small-text">Y no solo en lo bonito, sino también en esas partes</p>
+                        <p class="small-text">medio caóticas, en nuestros comportamientos más raros o complicados…</p>
+                        <p class="small-text">y aun así, aquí seguimos.</p>
+                    </div>
+                </section>
+
+                <section class="message-section" data-section="5">
+                    <div class="message-text emphasis">
+                        <p>Y eso es lo que más valoro.</p>
+                    </div>
+                </section>
+
+                <section class="message-section" data-section="6">
+                    <div class="message-text">
+                        <p>Quiero que siempre podamos mirarnos de frente,</p>
+                        <p class="highlight">sin máscaras.</p>
+                        <p class="small-text">Que podamos decirnos lo que no nos gusta,</p>
+                        <p class="small-text">lo que nos molesta, lo que sentimos…</p>
+                        <p class="small-text">sin miedo.</p>
+                    </div>
+                </section>
+
+                <section class="message-section" data-section="7">
+                    <div class="message-text">
+                        <p>Porque prefiero mil veces</p>
+                        <p class="highlight">una verdad incómoda contigo,</p>
+                        <p class="small-text">que una actitud fingida que no sea real.</p>
+                    </div>
+                </section>
+
+                <section class="message-section" data-section="8">
+                    <div class="message-text">
+                        <p>Contigo quiero algo sincero,</p>
+                        <p>algo donde podamos ser nosotros mismos,</p>
+                        <p class="highlight">sin filtros.</p>
+                    </div>
+                </section>
+
+                <section class="message-section" data-section="9">
+                    <div class="message-text final-message glow-text">
+                        <p>Y sí… aunque no lo diga de la forma más cursi del mundo,</p>
+                        <br>
+                        <p class="love-declaration">te quiero ❤️</p>
+                        <br>
+                        <p class="small-text">(pero igual sigo siendo el hombre araña,</p>
+                        <p class="small-text">por si acaso 🕷️😌)</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Indicador de progreso -->
+            <div class="progress-indicator">
+                <span class="progress-text">Clic para continuar...</span>
+            </div>
+        </div>
+
+        <!-- Botones de control -->
+        <div class="controls">
+            <button id="prevBtn" class="control-btn" title="Anterior">← Atrás</button>
+            <button id="nextBtn" class="control-btn active" title="Siguiente">Siguiente →</button>
+        </div>
+
+        <!-- Efecto de destello final (oculto inicialmente) -->
+        <div class="final-effect"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
